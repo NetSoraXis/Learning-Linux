@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🐧 Linux Quest</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div id="app">
+  <aside class="sidebar">
+    <div class="logo">
+      <span class="penguin">🐧</span>
+      <h1>Linux Quest</h1>
+      <span class="version">v2.0</span>
+    </div>
+
+    <div class="rank-box" id="rankBox">
+      <div class="rank-name">🐣 Новичок</div>
+      <div class="rank-bar"><div class="rank-fill" id="rankFill" style="width:0%"></div></div>
+      <div class="rank-text" id="rankText">0 / 300 XP</div>
+    </div>
+
+    <div class="progress-wrap">
+      <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+      <div class="progress-text" id="progressText">Уровень 1 / 18</div>
+    </div>
+
+    <div class="level-name" id="levelName">Загрузка…</div>
+    <div class="level-desc" id="levelDesc"></div>
+
+    <div class="task-card">
+      <div class="task-header">
+        <span class="task-counter" id="taskCounter">Задание 1/4</span>
+        <span class="score">⭐ <span id="score">0</span></span>
+      </div>
+      <h3 id="taskTitle">—</h3>
+      <p id="taskDesc">—</p>
+      <div class="task-actions">
+        <button id="hintBtn" class="btn-secondary">💡 Подсказка</button>
+        <button id="skipBtn" class="btn-secondary">⏭ Пропустить</button>
+      </div>
+      <div id="hintBox" class="hint-box hidden"></div>
+    </div>
+
+    <div class="controls">
+      <button id="saveBtn" class="btn-mini" title="Сохранить (Ctrl+S)">💾</button>
+      <button id="resetBtn" class="btn-mini" title="Сбросить">🔄</button>
+      <button id="examBtn" class="btn-mini" title="Экзамен">🎓</button>
+      <button id="themeBtn" class="btn-mini" title="Тема">🎨</button>
+    </div>
+
+    <details class="help-box">
+      <summary>📖 Быстрая справка</summary>
+      <code>help</code>
+      <code>man 'command'</code>
+      <code>hint</code>
+      <code>skip</code>
+      <code>reset</code>
+      <code>vim file</code>
+    </details>
+
+    <div class="map-header">🎖️ Достижения</div>
+    <div id="achievementsPanel" class="achievements-panel"></div>
+  </aside>
+
+  <main class="terminal-wrap">
+    <div class="terminal-header">
+      <div class="dots"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span></div>
+      <div class="title" id="termTitle">user@linux-quest: ~</div>
+      <div class="spacer"></div>
+      <button id="clearBtn" class="btn-mini" title="Очистить">🧹</button>
+    </div>
+    <div class="terminal" id="terminal">
+      <div class="terminal-output" id="output"></div>
+      <div class="terminal-input-line">
+        <span class="prompt" id="prompt">user@linux-quest:~$</span>
+        <input type="text" id="cmdInput" autocomplete="off" spellcheck="false" autofocus>
+      </div>
+    </div>
+  </main>
+</div>
+
+<div id="vimModal" class="modal hidden">
+  <div class="modal-content vim-modal">
+    <div class="vim-header"><span id="vimFilename">file.txt</span><span class="vim-hint">Ctrl+S сохранить · Esc выйти</span></div>
+    <textarea id="vimEditor" spellcheck="false"></textarea>
+    <div class="vim-status" id="vimStatus">-- INSERT --</div>
+  </div>
+</div>
+
+<div id="victoryModal" class="modal hidden">
+  <div class="modal-content">
+    <h2>🎉 Победа!</h2>
+    <p id="victoryText"></p>
+    <div class="victory-stats" id="victoryStats"></div>
+    <button id="closeVictory" class="btn-primary">Продолжить</button>
+  </div>
+</div>
+
+<div id="examModal" class="modal hidden">
+  <div class="modal-content">
+    <h2>🎓 Режим экзамена</h2>
+    <p>5 случайных заданий, 5 минут.</p>
+    <button id="startExam" class="btn-primary">Начать</button>
+    <button id="cancelExam" class="btn-secondary">Отмена</button>
+  </div>
+</div>
+
+<div id="toast" class="toast hidden"></div>
+
+<script src="js/fs.js"></script>
+<script src="js/shell.js"></script>
+<script src="js/man.js"></script> 
+<script src="js/commands.js"></script>
+<script src="js/editor.js"></script>
+<script src="js/storage.js"></script>
+<script src="js/levels.js"></script>
+<script src="js/worldmap.js"></script>
+<script src="js/achievements.js"></script>
+<script src="js/game.js"></script>
+<script src="js/tests.js"></script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+# Игнорируем всё, что не нужно на Pages
+node_modules/
+dist/
+build/
+out/
+__pycache__/
+*.pyc
+
+# Портативные сборки
+LinuxQuest.html
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# Логи
+*.log
+npm-debug.log*
